@@ -1,0 +1,28 @@
+@tube-width: 50px;
+@tube-height: 200px;
+@color-height: 40px;
+
+.tube-wrapper {
+
+}
+:host {
+  display: inline-flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: @tube-width;
+  height: @tube-height;
+  border: 2px solid #ccc;
+  border-radius: 0 0 calc(@tube-width / 2) calc(@tube-width / 2) ;
+  // padding-top: @tube-height - @color-height * 4;
+  overflow: hidden;
+  margin-right: 20px;
+
+}
+.color {
+  width: @tube-width;
+  height: @color-height;
+}
+:host.moveup {
+  transform: translateY(-30px);
+  transition: all 0.5s ease-out;
+}

@@ -1,0 +1,19 @@
+:host {
+  display: inline-flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 50px;
+  height: 200px;
+  border: 2px solid #ccc;
+  border-radius: 0 0 calc(50px / 2) calc(50px / 2);
+  overflow: hidden;
+  margin-right: 20px;
+}
+.color {
+  width: 50px;
+  height: 40px;
+}
+:host.moveup {
+  transform: translateY(-30px);
+  transition: all 0.5s ease-out;
+}
