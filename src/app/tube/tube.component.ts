@@ -15,11 +15,18 @@ export class TubeComponent  {
   @Output() last = new EventEmitter<any>();
   private isClicked: Boolean = false;
   private isUp: boolean = false;
+  private colorNum: number; // 包含的颜色的数量
 
   constructor(public host: ElementRef, public app: AppComponent) { }
 
   ngOnInit(): void {
-    // this.app.tubes.push(this);
+    // TODO: 需要计算出有几种颜色
+    this.colors.forEach((color, index) => {
+      if (index === 0) {
+        this.colorNum = 1;
+      } 
+    })
+    console.log(this.colorNum);
   }
 
   onTubeClick() {
@@ -37,6 +44,7 @@ export class TubeComponent  {
       if (this.colors.length === 4) {
         // 如果已满 
         this.app.lastClickedTube.isUp = false;
+        this.isUp = true;
       } else if (this.colors.length === 0
          || this.colors[0] === this.app.lastClickedTube.colors[0]) {
         // 如果能放下
